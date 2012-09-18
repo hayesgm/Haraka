@@ -332,6 +332,8 @@ exports.get_client_plugin = function (plugin, connection, config, callback) {
         smtp_client.on('xclient', helo);
 
         smtp_client.on('capabilities', function () {
+            connection.auth_capibilities = [];
+            
             for (var line in smtp_client.response) {
                 if (smtp_client.response[line].match(/^XCLIENT/)) {
                     if(!smtp_client.xclient) {
