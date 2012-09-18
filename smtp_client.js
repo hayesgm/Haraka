@@ -16,6 +16,11 @@ var STATE_RELEASED = 3;
 var STATE_DEAD = 4;
 var STATE_DESTROYED = 5;
 
+function base64 (str) {
+    var buffer = new Buffer(str, "UTF-8");
+    return buffer.toString("base64");
+}
+
 function SMTPClient(port, host, connect_timeout) {
     events.EventEmitter.call(this);
     this.uuid = uuid();
